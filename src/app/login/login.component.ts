@@ -6,6 +6,8 @@ import { LoginI } from '../models/login.interface';
 import { ResponseI } from '../models/response.interface';
 
 import { Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
+import { TokenI } from '../models/logout.interface';
 
 
 @Component({
@@ -18,10 +20,13 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
 
-    usuario : new FormControl('',Validators.required),
+    user_id : new FormControl('',Validators.required),
     password : new FormControl('',Validators.required)
   })
 
+  logoutButton = new FormGroup({
+    token : new FormControl('', Validators.required)
+  })
 
 
 
@@ -36,22 +41,29 @@ export class LoginComponent implements OnInit {
       
   }
 
-  onLogin(form:LoginI){
+
+  onLogin(form: LoginI) {
     this.api.loginByEmail(form).subscribe(data => {
       console.log(data);
-      let dataResponse:ResponseI = data;
-      if(dataResponse.status){
-        localStorage.setItem("token",dataResponse.result.token);  
-        console.log("Token:", dataResponse.result.token);
-        this.router.navigate(['home'])
-      } else{
+      let dataResponse: ResponseI = data;
+      
+      if (dataResponse.token !== '') {
+        localStorage.setItem("token", dataResponse.result.token);  
+        console.log("Login successful");
+        this.router.navigate([HomeComponent]);
+      } else {
         this.errorStatus = true;
-        //#region this.errorMsj = dataResponse.result.error_msg;
+        this.errorMsj = "No se encontraron datos en la respuesta.";
       }
-    }); 
-
+    });
   }
 
-
+  onLogout(form: TokenI){
+    this.api.Logout(form).subscribe(data =>{
+      console.log(data);
+      let tokenResponse:TokenI = data;
+      console.log(tokenResponse);
+    })
+  }
 
 }

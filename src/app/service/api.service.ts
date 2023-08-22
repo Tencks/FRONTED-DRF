@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {LoginI} from '../models/login.interface';
 import { ResponseI } from '../models/response.interface';
 import { listaResidentesI } from '../models/listaResidentes.interface';
+import { TokenI } from '../models/logout.interface';
 
 
 
@@ -24,6 +25,11 @@ export class ApiService {
   let direccion = this.urlApi + "login/"
   return this.http.post<ResponseI>(direccion,form);
  }
+
+Logout(form:TokenI):Observable<TokenI>{
+  let direccion = this.urlApi + "logout/"
+  return this.http.post<TokenI>(direccion,form);
+}
 
 
 getAllResidents(): Observable<listaResidentesI[]>{

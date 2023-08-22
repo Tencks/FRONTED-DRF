@@ -1,4 +1,4 @@
 export interface LoginI{
-    usuario?:string|null|undefined;
+    user_id?:string|null|undefined;
     password?:String|null;
 }

@@ -12,14 +12,19 @@
                <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
                   <div class="form-group">
                      <label>User Name</label>
-                     <input type="text" class="form-control" placeholder="User Name" formControlName="usuario">
+                     <input type="text" class="form-control" placeholder="User Name" formControlName="user_id">
                   </div>
                   <div class="form-group">
                      <label>Password</label>
                      <input type="password" class="form-control" placeholder="Password" formControlName="password">
                   </div>
                   <button type="submit" class="btn btn-black">Login</button>
-                  <button type="submit" class="btn btn-secondary">Register</button>
+               </form>
+            </div>
+            <div class="login-form">
+               <form [formGroup]="logoutButton" (ngSubmit)="onLogout(logoutButton.value)">
+                  <input type="text" class="form-control" placeholder="Token" formControlName="token">
+                  <button type="submit" class="btn btn-black">Logout</button>
                </form>
             </div>
             <div class="aert alert-danger" *ngIf="errorStatus">

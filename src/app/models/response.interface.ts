@@ -1,4 +1,9 @@
 export interface ResponseI{
-    status:string;
-    result:any;
+    status:any;
+    result?:string|any;
+    token?:string|null|any;
 }
+
+
+
+
