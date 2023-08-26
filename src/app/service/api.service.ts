@@ -6,6 +6,8 @@ import {LoginI} from '../models/login.interface';
 import { ResponseI } from '../models/response.interface';
 import { listaResidentesI } from '../models/listaResidentes.interface';
 import { TokenI } from '../models/logout.interface';
+import { RegisterI } from '../models/register.interface';
+import { loadResidentesI } from '../models/loadResidentes.interface';
 
 
 
@@ -20,6 +22,10 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
+RegisterUser(form:RegisterI):Observable<RegisterI>{
+  let direccion = this.urlApi + "addUser/"
+  return this.http.post<RegisterI>(direccion,form)
+}
 
  loginByEmail(form:LoginI):Observable<ResponseI> {
   let direccion = this.urlApi + "login/"
@@ -37,7 +43,10 @@ getAllResidents(): Observable<listaResidentesI[]>{
   return this.http.get<listaResidentesI[]>(direccion);
 }
 
-
+loadResident(form:listaResidentesI):Observable<loadResidentesI>{
+  let direccion = this.urlApi + "residentes/"
+  return this.http.post<loadResidentesI>(direccion,form);
+}
 
 
 }

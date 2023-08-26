@@ -20,6 +20,9 @@
                   </div>
                   <button type="submit" class="btn btn-black">Login</button>
                </form>
+               <form>
+                  <button type="submit" class="btn btn-black" (click)="OnRegisterButton()">Register</button>
+               </form>
             </div>
             <div class="login-form">
                <form [formGroup]="logoutButton" (ngSubmit)="onLogout(logoutButton.value)">
@@ -27,8 +30,10 @@
                   <button type="submit" class="btn btn-black">Logout</button>
                </form>
             </div>
-            <div class="aert alert-danger" *ngIf="errorStatus">
+            <div class="alert alert-danger" *ngIf="errorStatus">
                     <p>{{ errorMsj }}</p>
             </div>
+          
          </div>
+         
       </div>

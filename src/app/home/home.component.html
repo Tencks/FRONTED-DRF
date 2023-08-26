@@ -1,7 +1,52 @@
-<p>home works!</p>
+<app-topbar></app-topbar>
+<app-navbar></app-navbar>
 
-<div>
-    <ul *ngFor="let item of data">
-       <li>{{data}}</li>
-    </ul>
-</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre R</th>
+        <th scope="col">Apellido R</th>
+        <th scope="col">Dni R</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Medico de cabecera</th>
+        <th scope="col">Grupo sanguíneo</th>
+        <th scope="col">Número de habitación</th>
+        <th scope="col">Observaciones R</th>
+        <th scope="col">Localidad F</th>
+        <th scope="col">Domicilio F</th>
+        <th scope="col">Nombre F</th>
+        <th scope="col">Apellido F</th>
+        <th scope="col">Número telefónico</th>
+        <th scope="col">Dni F</th>
+        <th scope="col">Número de afiliado</th>
+        <th scope="col">Obra social</th>
+        <th scope="col">Vínculo con el R</th>
+
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let paciente of pacientes">
+        <th scope="row">{{paciente.NombreResidente}}</th>
+        <td>{{paciente.ApellidoResidente}}</td>
+        <td>{{paciente.DniResidente}}</td>
+        <td>{{paciente.FechaNacimiento}}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+
+<button class="btn btn-primary" (click)="onLogout()">
+    logout
+</button>

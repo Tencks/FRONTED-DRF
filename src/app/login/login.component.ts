@@ -34,30 +34,43 @@ export class LoginComponent implements OnInit {
   constructor(private api:ApiService, private router:Router){}
 
   errorStatus:boolean = false;
-  errorMsj:any = '';
+  errorMsj:any ='';
 
 
   ngOnInit(): void {
+
+    this.checkLocalStorage();
       
   }
+
+  OnRegisterButton(){
+    this.router.navigate(['register']);
+  }
+
+checkLocalStorage (){
+  if (localStorage.getItem('token')){
+    this.router.navigate(['home'])
+  }
+}
 
 
   onLogin(form: LoginI) {
     this.api.loginByEmail(form).subscribe(data => {
       console.log(data);
       let dataResponse: ResponseI = data;
-      
-      if (dataResponse.token !== '') {
-        localStorage.setItem("token", dataResponse.result.token);  
+      console.log(dataResponse);
+      if (dataResponse.token != null) {
+        localStorage.setItem('token',dataResponse.token);  
         console.log("Login successful");
-        this.router.navigate([HomeComponent]);
+        this.router.navigate(['home']);
       } else {
         this.errorStatus = true;
-        this.errorMsj = "No se encontraron datos en la respuesta.";
+        this.errorMsj = dataResponse.status;
       }
     });
   }
 
+ 
   onLogout(form: TokenI){
     this.api.Logout(form).subscribe(data =>{
       console.log(data);
@@ -65,5 +78,6 @@ export class LoginComponent implements OnInit {
       console.log(tokenResponse);
     })
   }
+ 
 
 }

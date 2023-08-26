@@ -1,0 +1,21 @@
+export interface loadResidentesI{
+    NombreResidente:string;
+    ApellidoResidente:string;
+    DniResidente:string;
+    FechaNacimiento:string;
+    Edad:string;
+    Genero:string;
+    MedicoDeCabecera:string;
+    GrupoSanguineo:string;
+    NumeroDeHabitacion:string;
+    ObservacionesResidente:string;
+    LocalidadFamiliar:string;
+    DomicilioFamiliar:string;
+    NombreFamiliar:string;
+    ApellidoFamiliar:string;
+    NumeroTelefonico:string;
+    DniFamiliar:string;
+    NumeroAfiliado:string;
+    ObraSocial:string;
+    VinculoConElResidente:string;
+}
