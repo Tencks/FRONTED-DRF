@@ -1,0 +1,169 @@
+<h1 class="text-black mb-4">Carga de Datos</h1>
+
+<div class="container">
+  <form [formGroup]="LoadRForm"  (ngSubmit)="OnLoadR(LoadRForm.value)">
+  
+    <mat-horizontal-stepper linear>
+      <mat-step>
+        <ng-template matStepLabel>Datos del residente</ng-template>
+        <!-- Primera etapa -->
+        <!-- Aquí coloca los campos correspondientes al residente -->
+  
+       
+        <div class="row">
+          <div class="col">
+            <mat-label>Nombre del Residente</mat-label>
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" formControlName="nombreResidente">
+          </div>
+          <div class="col">
+            <mat-label>Apellido del Residente</mat-label>
+            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" formControlName="apellidoResidente" >
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Dni del Residente</mat-label>
+            <input type="text" class="form-control" placeholder="10450210" aria-label="Dni" formControlName="dniResidente">
+          </div>
+          <div class="col">
+
+            <mat-label>Genero </mat-label>
+            <select class="form-select" aria-label="Default select example"  formControlName="genero" >
+              <option *ngFor="let option of generoOptions" [value]="option.value" >{{option.label}}</option>
+            </select>     
+
+          </div>
+        </div>
+      
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input type="date" class="form-control"  formControlName="fechaNacimiento">
+          </div>
+          <div class="col">
+            <mat-label>Edad del Residente</mat-label>
+            <input type="number" class="form-control" placeholder="Coloque su edad" formControlName="edad" >
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Numero de afiliado</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque su numero de afiliado" formControlName="numeroAfiliado">
+          </div>
+        </div>
+
+        
+      </mat-step>
+  
+      <mat-step>
+        <ng-template matStepLabel>Datos médicos</ng-template>
+        <!-- Segunda etapa -->
+        <!-- Aquí coloca los campos correspondientes al familiar -->
+  
+
+      <div class="container h-100">
+        <div class="row">
+          <div class="col">
+            <mat-label>Medico de cabecera</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque aquí su medico de cabecera"  formControlName="medicoDeCabecera">
+          </div>
+          <div class="col">
+            <mat-label>Grupo sanguíneo</mat-label>
+            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" formControlName="grupoSanguineo" >
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Número de la habitación</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque el numero de su habitación"  formControlName="numeroDeHabitacion">
+          </div>
+          <div class="col">
+            <mat-label>Obra social</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque su obra social"  formControlName="obraSocial" >
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Observaciones del residente</mat-label>
+            <textarea class="form-control" rows="3" placeholder="Detalles a tener en cuenta sobre el residente"  formControlName="observacionesResidente"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <button mat-button matStepperPrevious>Anterior</button>
+      </div>
+
+      </mat-step>
+  
+      <mat-step>
+        <ng-template matStepLabel>Datos del familiar</ng-template>
+        <!-- Tercera etapa -->
+        <!-- Aquí coloca los campos restantes -->
+  
+  
+        <div class="row">
+          <div class="col">
+            <mat-label>Nombre del familiar</mat-label>
+            <input type="text" class="form-control" placeholder="Nombre"  formControlName="nombreFamiliar">
+          </div>
+          <div class="col">
+            <mat-label>Apellido del familiar</mat-label>
+            <input type="text" class="form-control" placeholder="Apellido"  formControlName="apellidoFamiliar" >
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Vinculo con el residente</mat-label>
+            <select class="form-select"  formControlName="vinculoConElResidente">
+              <option *ngFor="let option of vinculoOptions" [value]="option.value">{{option.label}}</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Número de celular</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque su celular"  formControlName="numeroTelefonico">
+          </div>
+          <div class="col">
+            <mat-label>Dni del familiar</mat-label>
+            <input type="text" class="form-control" placeholder="20465333"  formControlName="dniFamiliar" >
+          </div>
+        </div>
+
+       
+
+          <div>
+          <button mat-button matStepperPrevious>Anterior</button>
+          <button mat-button (click)="OnLoadR(LoadRForm.value)">Enviar</button>
+          </div>
+  
+      </mat-step>
+     
+      
+    </mat-horizontal-stepper>
+  </form>
+   
+   
+</div>

@@ -1,52 +1,58 @@
-<app-topbar></app-topbar>
-<app-navbar></app-navbar>
 
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nombre R</th>
-        <th scope="col">Apellido R</th>
-        <th scope="col">Dni R</th>
-        <th scope="col">Fecha de nacimiento</th>
-        <th scope="col">Edad</th>
-        <th scope="col">Genero</th>
-        <th scope="col">Medico de cabecera</th>
-        <th scope="col">Grupo sanguíneo</th>
-        <th scope="col">Número de habitación</th>
-        <th scope="col">Observaciones R</th>
-        <th scope="col">Localidad F</th>
-        <th scope="col">Domicilio F</th>
-        <th scope="col">Nombre F</th>
-        <th scope="col">Apellido F</th>
-        <th scope="col">Número telefónico</th>
-        <th scope="col">Dni F</th>
-        <th scope="col">Número de afiliado</th>
-        <th scope="col">Obra social</th>
-        <th scope="col">Vínculo con el R</th>
+<div class="container text-center"><h1>Lista de Residentes</h1></div>
 
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let paciente of pacientes">
-        <th scope="row">{{paciente.NombreResidente}}</th>
-        <td>{{paciente.ApellidoResidente}}</td>
-        <td>{{paciente.DniResidente}}</td>
-        <td>{{paciente.FechaNacimiento}}</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
 
-<button class="btn btn-primary" (click)="onLogout()">
-    logout
-</button>
+
+<div class="container">
+  
+  
+
+  <button class="btn btn-primary" (click)="loadNewMedicamento()">Nuevo medicamento</button>
+</div>
+
+
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let paciente of pacientes" (click)="MoreInfo(paciente.id)">
+
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../assets/residentes/img1.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title">{{paciente.apellidoResidente}}</h4>
+              <p class="card-text">{{paciente.nombreResidente}}</p>
+              <p class="card-text"><small class="text-body-secondary">{{paciente.observacionesResidente}}</small></p>
+              <p class="card-text">{{paciente.dniResidente}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  
+    <div class="col" (click)="loadNew()">
+
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="../../assets/residentes/img1.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-text">Agregar nuevo residente</p>
+            <p class="card-text"><small class="text-body-secondary">Si desea agregar a un nuevo residente puede seleccinar en cualquier parte de este recuadro.</small></p>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+</div>

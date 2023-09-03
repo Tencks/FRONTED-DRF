@@ -8,7 +8,9 @@ import { listaResidentesI } from '../models/listaResidentes.interface';
 import { TokenI } from '../models/logout.interface';
 import { RegisterI } from '../models/register.interface';
 import { loadResidentesI } from '../models/loadResidentes.interface';
-
+import { DetallesPacienteI } from '../models/DetallesPacienteI.interface';
+import { LoadMedicamentoI } from '../models/loadMedicamento.interface';
+import { listaMedicamentosI } from '../models/getMedicamentos.interface';
 
 
 @Injectable({
@@ -18,6 +20,7 @@ export class ApiService {
 
 
   private urlApi =  'http://127.0.0.1:8000/api/';
+  private pacienteID: DetallesPacienteI[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -43,10 +46,35 @@ getAllResidents(): Observable<listaResidentesI[]>{
   return this.http.get<listaResidentesI[]>(direccion);
 }
 
-loadResident(form:listaResidentesI):Observable<loadResidentesI>{
+
+setPacienteID(id : any){
+  this.pacienteID = id;
+}
+
+getResidenteDetails():Observable<DetallesPacienteI>{
+  let direccion = this.urlApi + "residentes/" + this.pacienteID
+  return this.http.get<DetallesPacienteI>(direccion);
+}
+
+loadResident(form:loadResidentesI):Observable<loadResidentesI>{
   let direccion = this.urlApi + "residentes/"
   return this.http.post<loadResidentesI>(direccion,form);
 }
 
+//# METODO PARA CREAR UN NUEVO MEDICAMENTO
+
+LoadNewMedicamento(form:LoadMedicamentoI):Observable<LoadMedicamentoI>{
+  let direccion = this.urlApi + "medicamentosresidente/"
+  return this.http.post<LoadMedicamentoI>(direccion,form)
+}
+
+
+//# METODO PARA CREAR UN NUEVO MEDICAMENTO
+
+
+getMedicamentos():Observable<listaMedicamentosI>{
+  let direccion = this.urlApi + "residentes/" + this.pacienteID + "/" + "medicamentos/"
+  return this.http.get<listaMedicamentosI>(direccion);
+}
 
 }

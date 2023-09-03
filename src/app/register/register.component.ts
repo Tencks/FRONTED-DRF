@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RegisterI } from '../models/register.interface';
 import { ApiService } from '../service/api.service';
 import { Router } from '@angular/router';
+import { CARGO } from '../models/tulpas.const';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +12,15 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  cargoClass = CARGO;
+
   RegisterForm = new FormGroup({
 
     email : new FormControl('',Validators.required),
     username : new FormControl('',Validators.required),
     password : new FormControl('',Validators.required),
     password1 : new FormControl('',Validators.required),
+    cargo : new FormControl('',Validators.required),
     
   })
 

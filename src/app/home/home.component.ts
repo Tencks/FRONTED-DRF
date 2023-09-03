@@ -5,6 +5,7 @@ import { loadResidentesI } from '../models/loadResidentes.interface';
 
 import { Router } from '@angular/router';
 import { TokenI } from '../models/logout.interface';
+import { ResidenteInfoService } from '../residente-info.service';
 
 @Component({
   selector: 'app-home',
@@ -15,18 +16,22 @@ export class HomeComponent implements OnInit  {
 
   data: any[] = [];
 
-  pacientes:loadResidentesI[]=[];
+  pacientes:listaResidentesI[]=[];
 
 
-  constructor(private api:ApiService, private router:Router){}
+  constructor(private api:ApiService, private router:Router, private reidentesService: ResidenteInfoService){}
 
   ngOnInit(): void {
     
-     this.api.getAllResidents().subscribe(data =>{
-      console.log(data);
-      let pacientes:loadResidentesI[]=data;
-      console.log(this.pacientes)
+     this.api.getAllResidents().subscribe(pacientes =>{
+      console.log(pacientes);
+      this.pacientes = pacientes;
      })
+  }
+
+  MoreInfo(pacienteID: listaResidentesI['id']){
+    this.api.setPacienteID(pacienteID)
+    this.router.navigate(['topbar',pacienteID]);
   }
 
   onLogout() {
@@ -45,5 +50,19 @@ export class HomeComponent implements OnInit  {
     }
   }
   
+
+
+loadNew(){
+  this.router.navigate(['load']);
+}
+
+loadNewMedicamento(){
+  this.router.navigate(['loadMedicacion']);
+}
+
+
+
+
+
 
 }

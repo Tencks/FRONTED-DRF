@@ -1,0 +1,95 @@
+<h1 class="text-black mb-4">Cargar nuevo medicamento</h1>
+
+<div class="container">
+  <form [formGroup]="LoadMedicamentoForm"  (ngSubmit)="OnLoadMedicamento(LoadMedicamentoForm.value)">
+  
+    <mat-horizontal-stepper linear>
+      <mat-step>
+        <ng-template matStepLabel>A que persona se asigna</ng-template>
+        <!-- Primera etapa -->
+        <!-- Aquí coloca los campos correspondientes al residente -->
+  
+      
+          <label>Al residente asignado</label>
+          <select class="form-select" formControlName="residenteM">
+            <option *ngFor="let residente of residentes" [value]="residente.id">{{ residente.nombreResidente }}</option>
+          </select>
+
+          <div>
+            <label>Es un medicamento genérico?</label>
+          <select class="form-select" aria-label="Default select example"  formControlName="genericMedicamento">
+            <option *ngFor="let option of genericoOptions" [value]="option.value">{{option.label}}</option>
+          </select> 
+          </div>
+  
+            <h6 class="mb-0">Nombre del medicamento</h6>
+            <input type="text" class="form-control form-control-lg" formControlName="nombreMedicamento"/>
+  
+            <h6 class="mb-0">Marca del medicamento</h6>
+            <input type="text" class="form-control form-control-lg" formControlName="marcaMedicamento" />
+  
+            <h6 class="mb-0">Peso</h6>
+            <input type="number" class="form-control form-control-lg" formControlName="pesoMedicamento" />
+  
+              
+            <div class="col-md-9 pe-5">
+                <label >Tipo de medición utilizada</label>
+                <select class="form-select" aria-label="Default select example"  formControlName="medicionMedicamento">
+                  <option *ngFor="let option of medicamentoOptions" [value]="option.value">{{option.label}}</option>
+                </select>
+      
+              </div>
+              <div>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+  
+      </mat-step>
+  
+      <mat-step>
+        <ng-template matStepLabel>Otros datos necesarios</ng-template>
+        <!-- Primera etapa -->
+        <!-- Aquí coloca los campos correspondientes al residente -->
+    
+        <label>Cantidad disponible</label>
+              <input type="number" class="form-control form-control-lg" formControlName="cantDisponible"/>
+    
+              <div>
+                <label>Fecha en la que ingresa</label> 
+                <input type="date" class="form-control form-control-lg" formControlName="fechaIngreso"/>
+              </div>
+
+              <div>
+                <label>Fecha en la que se agotan</label> 
+                <input type="date" class="form-control form-control-lg" formControlName="fechaCaducidad"/>
+              </div>
+      
+                <h6 class="mb-0">Codigo del medicamento</h6>
+                <input type="text" class="form-control form-control-lg" formControlName="codMedicamento"/>
+      
+                <h6 class="mb-0">Observaciones del medicamento</h6>
+                <textarea class="form-control" rows="3" placeholder="Detalles a tener en cuenta sobre el medicamento"  formControlName="observacionesMedicamento"></textarea>
+                
+
+
+                <h6 class="mb-0">Derivaciones del medicamento</h6>
+                <textarea class="form-control" rows="3" placeholder="Derivaciones hechas por el medico de cabecera"  formControlName="derivacionesMedicamento"></textarea>
+    
+                  <div>
+                    <button mat-button matStepperPrevious>Anterior</button>
+                    <button mat-button (click)="OnLoadMedicamento(LoadMedicamentoForm.value)">Cargar</button>
+                  </div>
+        </mat-step> 
+    
+          
+         
+      
+
+
+    </mat-horizontal-stepper>
+  </form>
+   
+   
+</div>
+
+
+

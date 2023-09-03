@@ -1,0 +1,54 @@
+<div class="container text-center" >
+  
+<div class="container">
+    <h1>Listado de medicamentos</h1>
+</div>
+
+
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Generico</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Peso</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let medicamento of Medicamentos">
+            <th scope="row" >{{medicamento.Generico}}</th>
+            <th scope="row" >{{medicamento.Nombre}}</th>
+            <th scope="row" >{{medicamento.Marca}}</th>
+            <th scope="row" >{{medicamento.Peso}}</th>
+        </tr>
+
+       
+      </tbody>
+
+      <thead>
+        <tr>
+          <th scope="col">Cantidad Disponible</th>
+          <th scope="col">Medida</th>
+          <th scope="col">Fecha de Ingreso</th>
+          <th scope="col">Fecha de terminadas</th>
+          <th scope="col">Código</th>
+          <th scope="col">Observaciones</th>
+          <th scope="col">Derivaciones</th>
+        </tr>
+      </thead>
+     <tbody>
+        <tr *ngFor="let medicamento of Medicamentos">
+            <th scope="row" >{{medicamento.CantDisponible}}</th>
+            <th scope="row" >{{medicamento.Medida}}</th>
+            <th scope="row" >{{medicamento.FechaIngreso}}</th>
+            <th scope="row" >{{medicamento.FechaCaducidad}}</th>
+            <th scope="row" >{{medicamento.Codigo}}</th>
+            <th scope="row" >{{medicamento.Observaciones}}</th>
+            <th scope="row" >{{medicamento.Derivaciones}}</th>
+        </tr>
+     </tbody>
+   
+    </table>
+
+   
+</div>

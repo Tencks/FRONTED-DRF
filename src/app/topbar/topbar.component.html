@@ -1,0 +1,95 @@
+
+
+
+<div class="container">
+    <h1 *ngIf="pacienteDetalles"><span>{{pacienteDetalles.nombreResidente }}</span><span>{{pacienteDetalles.apellidoResidente}}</span> </h1>
+</div>
+
+<div class="container text-center">
+  
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Residente Nombre</th>
+        <th scope="col">Residente Apellido</th>
+        <th scope="col">Medico de cabecera</th>
+        <th scope="col">Número de afiliado</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr  *ngIf="pacienteDetalles">
+        <th scope="row" >{{pacienteDetalles.nombreResidente}}</th>
+        <td>{{pacienteDetalles.apellidoResidente}}</td>
+        <td>{{pacienteDetalles.medicoDeCabecera}}</td>
+        <td>{{pacienteDetalles.numeroAfiliado}}</td>
+      </tr>
+  
+    </tbody>
+  </table>
+  
+  </div>
+
+<div class="container text-center">
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Dni R</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">Grupo sanguíneo</th>
+        <th scope="col">Número de habitación</th>        
+        <th scope="col">Observaciones R</th>
+
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngIf="pacienteDetalles">
+        <th scope="row" >{{pacienteDetalles.dniResidente}}</th>
+        <td>{{pacienteDetalles.edad}}</td>
+        <td>{{pacienteDetalles.genero}}</td>
+        <td>{{pacienteDetalles.fechaNacimiento | date: 'dd/MM/yyyy'}}</td>
+        <td>{{pacienteDetalles.grupoSanguineo}}</td>
+        <td>{{pacienteDetalles.numeroDeHabitacion}}</td>
+        <td>{{pacienteDetalles.observacionesResidente}}</td>
+      </tr>
+  
+    </tbody>
+  </table>
+
+</div>
+
+<div class="container text-center">
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+  
+        <th scope="col">Localidad F</th>
+        <th scope="col">Domicilio F</th>
+        <th scope="col">Nombre F</th>
+        <th scope="col">Apellido F</th>
+        <th scope="col">Número telefónico</th>
+        <th scope="col">Dni F</th>
+        <th scope="col">Obra social</th>
+        <th scope="col">Vínculo con el R</th>
+
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngIf="pacienteDetalles">
+        <th scope="row" >{{pacienteDetalles.localidadFamiliar}}</th>
+        <td>{{pacienteDetalles.domicilioFamiliar}}</td>
+        <td>{{pacienteDetalles.nombreFamiliar}}</td>
+        <td>{{pacienteDetalles.apellidoFamiliar}}</td>
+        <td>{{pacienteDetalles.numeroTelefonico}}</td>
+        <td>{{pacienteDetalles.dniFamiliar}}</td>
+        <td>{{pacienteDetalles.obraSocial}}</td>
+        <td>{{pacienteDetalles.vinculoConElResidente}}</td>
+      </tr>
+  
+    </tbody>
+  </table>
+</div>
+
+
+<app-more-info-medico></app-more-info-medico>
