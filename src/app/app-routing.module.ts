@@ -11,6 +11,8 @@ import { StockMLocalComponent } from './stock-mlocal/stock-mlocal.component';
 import { StockMedicamentosComponent } from './stock-medicamentos/stock-medicamentos.component';
 import { AddMedicamentoComponent } from './add-medicamento/add-medicamento.component';
 import { CuracionesHComponent } from './curaciones-h/curaciones-h.component';
+import { LoadObservacionComponent } from './observaciones/load-observacion/load-observacion.component';
+import { ViewObservacionesComponent } from './observaciones/view-observaciones/view-observaciones.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'login', pathMatch:'full'},
@@ -24,7 +26,10 @@ const routes: Routes = [
   {path: 'loadMedicacionL', component : StockMLocalComponent},
   {path: 'loadMedicacionR', component : StockMedicamentosComponent},
   {path: 'loadMedicacion', component : AddMedicamentoComponent},
-  {path: 'curaciones', component : CuracionesHComponent}
+  {path: 'curaciones', component : CuracionesHComponent},
+  {path: 'addSemanalO', component: LoadObservacionComponent},
+  {path: 'viewSemanalO/:id', component: ViewObservacionesComponent},
+
 ];
 
 @NgModule({

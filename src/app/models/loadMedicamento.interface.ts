@@ -1,4 +1,3 @@
-import { Data } from "popper.js";
 
 export interface LoadMedicamentoI{
     residenteM:string;
@@ -8,8 +7,8 @@ export interface LoadMedicamentoI{
     pesoMedicamento:string;
     cantDisponible:string;
     medicionMedicamento:string;
-    fechaIngreso:Data;
-    fechaCaducidad:Data;
+    fechaIngreso:Date;
+    fechaCaducidad:Date;
     codMedicamento:string;
     observacionesMedicamento:string;
     derivacionesMedicamento:string;

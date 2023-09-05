@@ -45,8 +45,9 @@ ngOnInit(): void {
     dniFamiliar: new FormControl('',Validators.required),
     numeroAfiliado: new FormControl('',Validators.required),
     obraSocial: new FormControl('',Validators.required),
-    vinculoConElResidente: new FormControl('',Validators.required)
-  
+    vinculoConElResidente: new FormControl('',Validators.required),
+    fotoResidente: new FormControl('',Validators.required)
+
   });
 }
     
@@ -64,5 +65,21 @@ OnLoadR(form:loadResidentesI){
   })
 }
 
+
+
+onFileSelected(event:any): void{
+  const file = event.target.files[0];
+    if(file){
+      this.convertToBase64(file);
+    }
+}
+
+convertToBase64(file : File): void{
+  const reader = new FileReader();
+   reader.onload = (e:any) =>{
+     this.LoadRForm.value.fotoResidente = e.target.result;
+   };
+   reader.readAsDataURL(file);
+}
 
 }

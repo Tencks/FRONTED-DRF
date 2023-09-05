@@ -20,5 +20,6 @@ export interface DetallesPacienteI{
     dniFamiliar:string;
     obraSocial:string;
     vinculoConElResidente:string;
+    fotoResidente:string;
 };
 

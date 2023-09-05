@@ -11,6 +11,8 @@ import { loadResidentesI } from '../models/loadResidentes.interface';
 import { DetallesPacienteI } from '../models/DetallesPacienteI.interface';
 import { LoadMedicamentoI } from '../models/loadMedicamento.interface';
 import { listaMedicamentosI } from '../models/getMedicamentos.interface';
+import { LoadSemanalOI } from '../models/loadSemanalO.interface';
+import { listaSemanalOI } from '../models/getSemanalO.interface';
 
 
 @Injectable({
@@ -69,12 +71,27 @@ LoadNewMedicamento(form:LoadMedicamentoI):Observable<LoadMedicamentoI>{
 }
 
 
-//# METODO PARA CREAR UN NUEVO MEDICAMENTO
+//# METODO PARA MOSTRAR TODOS LOS MEDICAMENTOS
 
 
 getMedicamentos():Observable<listaMedicamentosI>{
   let direccion = this.urlApi + "residentes/" + this.pacienteID + "/" + "medicamentos/"
   return this.http.get<listaMedicamentosI>(direccion);
 }
+
+
+//# METODOS PARA LAS OBSERVACIONES SEMANALES
+
+LoadNewSemanalO(form:LoadSemanalOI):Observable<LoadSemanalOI>{
+  let direccion = this.urlApi + "observacionessemanales/"
+  return this.http.post<LoadSemanalOI>(direccion,form)
+}
+
+//# METODO PARA MOSTRAR 
+getSemanalO():Observable<listaSemanalOI>{
+  let direccion = this.urlApi + "residentes/" + this.pacienteID + "/" + "signosVitales/"
+  return this.http.get<listaSemanalOI>(direccion);
+}
+
 
 }

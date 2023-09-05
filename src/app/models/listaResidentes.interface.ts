@@ -19,4 +19,5 @@ export interface listaResidentesI{
     numeroAfiliado:string;
     obraSocial:string;
     vinculoConElResidente:string;
+    fotoResidente:string;
 }

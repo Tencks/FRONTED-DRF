@@ -19,4 +19,5 @@ export interface loadResidentesI{
     numeroAfiliado?:string|null|undefined;
     obraSocial?:string|null|undefined;
     vinculoConElResidente?:string|null|undefined;
+    fotoResidente?:string;
 }

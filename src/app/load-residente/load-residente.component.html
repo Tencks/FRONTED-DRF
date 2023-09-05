@@ -61,6 +61,9 @@
         </div>
 
         
+      
+
+        
       </mat-step>
   
       <mat-step>
@@ -150,6 +153,29 @@
             <mat-label>Dni del familiar</mat-label>
             <input type="text" class="form-control" placeholder="20465333"  formControlName="dniFamiliar" >
           </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Localidad del familiar</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque su localidad"  formControlName="localidadFamiliar">
+          </div>
+          <div class="col">
+            <mat-label>Domicilio del familiar</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque su domicilio"  formControlName="domicilioFamiliar" >
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          
+          <div class="col">
+            <mat-label>Foto del residente</mat-label>
+            <input type="file" class="form-control" id="fotoResidente" formControlName="fotoResidente" (change)="onFileSelected($event)" accept="image/jpeg, image/jpg">
+               <img *ngIf="LoadRForm.value.fotoResidente" [src]="LoadRForm.value.fotoResidente" class="img-preview" alt="Foto del residente">
+          </div>
+      
         </div>
 
        
