@@ -54,15 +54,16 @@ genericoOptions = GENERICO;
     this.api.LoadNewMedicamento(form).subscribe(newwMedicamento =>{
       let newMedicamento:LoadMedicamentoI = newwMedicamento;
       console.log(newMedicamento)
-      if (newMedicamento != null){
+      if (newMedicamento){
         alert('Gracias por agregar un nuevo medicamento al residente');
         this.router.navigate([''])
       }
     })
 
+  }
 
-
-
+  CreateResidenteGO(){
+    this.router.navigate(['load'])
   }
 
 

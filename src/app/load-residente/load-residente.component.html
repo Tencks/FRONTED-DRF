@@ -80,7 +80,7 @@
           </div>
           <div class="col">
             <mat-label>Grupo sanguíneo</mat-label>
-            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" formControlName="grupoSanguineo" >
+            <input type="text" class="form-control" placeholder="B+ B- A+ A- AB 0+ 0-"  formControlName="grupoSanguineo" >
           </div>
         </div>
 
@@ -169,7 +169,7 @@
         <hr class="mx-n3">
 
         <div class="row">
-          
+
           <div class="col">
             <mat-label>Foto del residente</mat-label>
             <input type="file" class="form-control" id="fotoResidente" formControlName="fotoResidente" (change)="onFileSelected($event)" accept="image/jpeg, image/jpg">

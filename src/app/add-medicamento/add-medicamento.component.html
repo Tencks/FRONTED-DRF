@@ -9,40 +9,52 @@
         <!-- Primera etapa -->
         <!-- Aquí coloca los campos correspondientes al residente -->
   
-      
-          <label>Al residente asignado</label>
-          <select class="form-select" formControlName="residenteM">
-            <option *ngFor="let residente of residentes" [value]="residente.id">{{ residente.nombreResidente }}</option>
-          </select>
-
-          <div>
-            <label>Es un medicamento genérico?</label>
-          <select class="form-select" aria-label="Default select example"  formControlName="genericMedicamento">
-            <option *ngFor="let option of genericoOptions" [value]="option.value">{{option.label}}</option>
-          </select> 
+        <div class="row">
+          <div class="col">
+            <mat-label>Asignar al residente</mat-label>
+            <select class="form-select" formControlName="residenteM">
+              <option *ngFor="let residente of residentes" [value]="residente.id">{{ residente.nombreResidente }}</option>
+            </select>
           </div>
-  
-            <h6 class="mb-0">Nombre del medicamento</h6>
-            <input type="text" class="form-control form-control-lg" formControlName="nombreMedicamento"/>
-  
-            <h6 class="mb-0">Marca del medicamento</h6>
-            <input type="text" class="form-control form-control-lg" formControlName="marcaMedicamento" />
-  
-            <h6 class="mb-0">Peso</h6>
-            <input type="number" class="form-control form-control-lg" formControlName="pesoMedicamento" />
-  
-              
-            <div class="col-md-9 pe-5">
-                <label >Tipo de medición utilizada</label>
-                <select class="form-select" aria-label="Default select example"  formControlName="medicionMedicamento">
-                  <option *ngFor="let option of medicamentoOptions" [value]="option.value">{{option.label}}</option>
-                </select>
-      
-              </div>
-              <div>
-                <button mat-button matStepperNext>Siguiente</button>
-              </div>
-  
+          <div class="col">
+            <mat-label>Es un medicamento genérico?</mat-label>
+            <select class="form-select" aria-label="Default select example"  formControlName="genericMedicamento">
+              <option *ngFor="let option of genericoOptions" [value]="option.value">{{option.label}}</option>
+            </select> 
+           
+          </div>
+        </div>
+
+        <hr class="mx-n3"> 
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Nombre del medicamento</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque el nombre"  formControlName="nombreMedicamento">
+          </div>
+          <div class="col">
+            <mat-label>Marca del medicamento</mat-label>
+            <input type="text" class="form-control" placeholder="Coloque la marca"  formControlName="marcaMedicamento" >
+          </div>
+        </div>
+
+        <hr class="mx-n3">
+
+        <div class="row">
+          <div class="col">
+            <mat-label>Peso del medicamento</mat-label>
+            <input type="number" class="form-control" placeholder="Coloque el nombre"  formControlName="pesoMedicamento">
+          </div>
+          <div class="col">
+            <mat-label>Tipo de medición utilizada</mat-label>
+            <select class="form-select" aria-label="Default select example"  formControlName="medicionMedicamento">
+              <option *ngFor="let option of medicamentoOptions" [value]="option.value">{{option.label}}</option>
+            </select>
+          </div>
+        </div>
+
+        <button mat-button matStepperNext>Siguiente</button>
+
       </mat-step>
   
       <mat-step>
@@ -50,30 +62,50 @@
         <!-- Primera etapa -->
         <!-- Aquí coloca los campos correspondientes al residente -->
     
-        <label>Cantidad disponible</label>
-              <input type="number" class="form-control form-control-lg" formControlName="cantDisponible"/>
-    
-              <div>
-                <label>Fecha en la que ingresa</label> 
-                <input type="date" class="form-control form-control-lg" formControlName="fechaIngreso"/>
-              </div>
+        <div class="row">
+          <div class="col">
+            <mat-label>Fecha en la que ingresa</mat-label>
+            <input type="date" class="form-control " formControlName="fechaIngreso"/>
+          </div>
+          <div class="col">
+            <mat-label>Fecha en la que se agotan</mat-label>
+            <input type="date" class="form-control " formControlName="fechaCaducidad"/>
+          </div>
+        </div>
 
-              <div>
-                <label>Fecha en la que se agotan</label> 
-                <input type="date" class="form-control form-control-lg" formControlName="fechaCaducidad"/>
+        <hr class="mx-n3">
+
+
+    
+              <div class="row">
+                <div class="col">
+                  <mat-label>Codigo del medicamento</mat-label>
+                  <input type="text" class="form-control" placeholder="Coloque el código"  formControlName="codMedicamento">
+                </div>
+                <div class="col">
+                  <mat-label>Cantidad disponible</mat-label>
+                  <input type="number" class="form-control" placeholder="Coloque la cantidad con la que dispone"  formControlName="cantDisponible" >
+                </div>
               </div>
       
-                <h6 class="mb-0">Codigo del medicamento</h6>
-                <input type="text" class="form-control form-control-lg" formControlName="codMedicamento"/>
+              <hr class="mx-n3">
       
-                <h6 class="mb-0">Observaciones del medicamento</h6>
-                <textarea class="form-control" rows="3" placeholder="Detalles a tener en cuenta sobre el medicamento"  formControlName="observacionesMedicamento"></textarea>
-                
+              <div class="row">
+                <div class="col">
+                  <mat-label>Observaciones del medicamento</mat-label>
+                  <textarea class="form-control" rows="3" placeholder="Detalles a tener en cuenta sobre el medicamento"  formControlName="observacionesMedicamento"></textarea>
+                </div>
+              </div>
+      
+              <hr class="mx-n3">
+      
+              <div class="row">
+                <div class="col">
+                  <mat-label>Derivaciones del medicamento</mat-label>
+                  <textarea class="form-control" rows="3" placeholder="Derivaciones hechas por el medico de cabecera"  formControlName="derivacionesMedicamento"></textarea>
+                </div>
+              </div>
 
-
-                <h6 class="mb-0">Derivaciones del medicamento</h6>
-                <textarea class="form-control" rows="3" placeholder="Derivaciones hechas por el medico de cabecera"  formControlName="derivacionesMedicamento"></textarea>
-    
                   <div>
                     <button mat-button matStepperPrevious>Anterior</button>
                     <button mat-button (click)="OnLoadMedicamento(LoadMedicamentoForm.value)">Cargar</button>
@@ -88,6 +120,13 @@
     </mat-horizontal-stepper>
   </form>
    
+
+  <div class="card d-flex" style="margin-top: 2%;">
+    <div class="card-body">
+      <p>Si no encuentras al residente al cual deseas agregarle un medicamento, seguramente no este creado. Si deseas crearlo, <a class="fw-bold text-body" style="cursor: pointer;" (click)="CreateResidenteGO()"><u>haz click aquí.</u></a></p>
+  </div>
+  
+  </div>
    
 </div>
 

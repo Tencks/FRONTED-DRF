@@ -25,6 +25,19 @@ constructor(private api:ApiService, private router:Router, private formBuilder: 
 
 ngOnInit(): void {
 
+  const cargo = localStorage.getItem('cargo')
+
+  
+  if(cargo){
+    if(cargo >= '2'){
+
+    }else{
+      alert('no posees permisos suficientes');
+      this.router.navigate(['']);
+    }
+  }
+
+
   this.LoadRForm = this.formBuilder.group({
     // Define aquí los campos de tu formulario y las validaciones
     nombreResidente : new FormControl('',Validators.required),
@@ -49,6 +62,9 @@ ngOnInit(): void {
     fotoResidente: new FormControl('',Validators.required)
 
   });
+
+
+
 }
     
 

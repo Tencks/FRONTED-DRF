@@ -1,13 +1,35 @@
-<nav class="navbar bg-body-tertiary stiky-top">
+<nav class="navbar  sticky-top bg-body-tertiary">
     <div class="container-fluid">
-   
-        <a class="navbar-brand" href="home">
-          <img src="../../assets/navbar/Armonia.png" alt="Armonia" width="60" height="24">
+
+      <div class="row w-100 d-flex">
+        <div class="col-md-2">
+            <!-- Logo de la marca -->
+  
+        <a class="navbar-brand d-flex" href="home">
+          <img src="../../assets/navbar/Armonia.png" alt="Armonia" width="105" height="36">
         </a>
-   
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        </div>
+
+        <div class="col-md-9 text-end d-block">
+          <!-- Botón "Alerts" -->
+
+              <button type="button" class="btn btn-primary position-relative text-end navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAlerts" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                Alerts <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">unread messages</span></span>
+              </button>
+
+        </div>
+
+        <div class="col-md-1 text-end">
+          <!-- Botón del Offcanvas -->
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </div>
+
+      </div>  
+      
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <div class="container">
@@ -19,40 +41,36 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <hr>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home">Residentes</a>
+              <a class="nav-link active" aria-current="page" style="cursor: pointer;" (click)="HomeResidenteGO()">Residentes</a>
             </li>
+            <hr>
             <li class="nav-item">
-              <a class="nav-link" href="#">Agregar nuevo residente</a>
+              <a class="nav-link" style="cursor: pointer;" (click)="CreateResidenteGO()">Agregar nuevo residente</a>
             </li>
+            <hr>
             <li class="nav-item">
-              <a class="nav-link" href="#">ver lista de residentes</a>
+              <a class="nav-link" style="cursor: pointer;" (click)="HomeMedicoGO()">Historial Medico</a>
             </li>
+            <hr>
             <li class="nav-item">
-              <a class="nav-link" href="homeMedico">Historial Medico</a>
+              <a class="nav-link" style="cursor: pointer;" (click)="CreateMedicamentoGO()">Agregar medicamento</a>
             </li>
+            <hr>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" style="cursor: pointer;" (click)="HomeMedicamentosGO()">Stock de medicamentos</a>
             </li>
-
+            <hr>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" style="cursor: pointer;" (click)="HomeMedicamentoLocalGO()">Stock Local</a>
             </li>
+            <hr>    
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" style="cursor: pointer;" (click)="HomeUsuarioGO()">Panel del Usuario</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Usuario</a>
-            </li>
-
-            <button class="btn btn-primary" (click)="onLogout()">
-              Desconectarse
-          </button>
-           
+            <hr> 
+    
           </ul>
           
 
@@ -60,5 +78,31 @@
 
         </div>
       </div>
+
+
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAlerts" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <div class="container">
+            <h1 class="title text-center">NOTIFICACIONES</h1>
+            <hr>
+          </div>
+          
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" >FUNCIONANDOO</a>
+            </li>
+           
+          </ul>
+          
+
+            
+
+        </div>
+      </div>
+
+
     </div>
   </nav>

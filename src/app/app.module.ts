@@ -26,6 +26,7 @@ import { CuracionesHComponent } from './curaciones-h/curaciones-h.component';
 import { AddMedicamentoComponent } from './add-medicamento/add-medicamento.component';
 import { LoadObservacionComponent } from './observaciones/load-observacion/load-observacion.component';
 import { ViewObservacionesComponent } from './observaciones/view-observaciones/view-observaciones.component';
+import { UsuarioPanelComponent } from './usuario-panel/usuario-panel.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ViewObservacionesComponent } from './observaciones/view-observaciones/v
     AddMedicamentoComponent,
     LoadObservacionComponent,
     ViewObservacionesComponent,
+    UsuarioPanelComponent,
   ],
   imports: [
     BrowserModule,

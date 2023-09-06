@@ -53,11 +53,35 @@ export class HomeComponent implements OnInit  {
 
 
 loadNew(){
-  this.router.navigate(['load']);
+
+  const cargo = localStorage.getItem('cargo')
+
+  if(cargo){
+    if(cargo >= '2'){
+
+      this.router.navigate(['load']);
+    }else{
+      alert('no posees permisos suficientes')
+    }
+  }
+
+
 }
 
 loadNewMedicamento(){
+  const cargo = localStorage.getItem('cargo')
+
+
+  if(cargo){
+    if(cargo >= '2'){
+
   this.router.navigate(['loadMedicacion']);
+    }else{
+      alert('no posees permisos suficientes')
+    }
+  }
+
+
 }
 
 

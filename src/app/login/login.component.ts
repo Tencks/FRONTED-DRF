@@ -61,6 +61,7 @@ checkLocalStorage (){
       console.log(dataResponse);
       if (dataResponse.token != null) {
         localStorage.setItem('token',dataResponse.token);  
+        localStorage.setItem('cargo',dataResponse.cargo);
         console.log("Login successful");
         this.router.navigate(['home']);
       } else {

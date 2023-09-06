@@ -13,6 +13,7 @@ import { AddMedicamentoComponent } from './add-medicamento/add-medicamento.compo
 import { CuracionesHComponent } from './curaciones-h/curaciones-h.component';
 import { LoadObservacionComponent } from './observaciones/load-observacion/load-observacion.component';
 import { ViewObservacionesComponent } from './observaciones/view-observaciones/view-observaciones.component';
+import { UsuarioPanelComponent } from './usuario-panel/usuario-panel.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'login', pathMatch:'full'},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'curaciones', component : CuracionesHComponent},
   {path: 'addSemanalO', component: LoadObservacionComponent},
   {path: 'viewSemanalO/:id', component: ViewObservacionesComponent},
+  {path: 'usuarioPanel', component: UsuarioPanelComponent}
 
 ];
 

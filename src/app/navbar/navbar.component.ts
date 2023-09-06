@@ -17,6 +17,39 @@ ngOnInit(): void {
 }
 
 
+CreateResidenteGO(){
+  this.router.navigate(['load'])
+}
+
+CreateMedicamentoGO(){
+  this.router.navigate(['loadMedicacion'])
+}
+
+HomeResidenteGO(){
+  this.router.navigate([''])
+}
+
+HomeMedicoGO(){
+  this.router.navigate(['homeMedico'])
+}
+
+HomeMedicamentosGO(){
+  this.router.navigate(['loadMedicacionR'])
+
+}
+
+HomeMedicamentoLocalGO(){
+  this.router.navigate(['loadMedicacionL'])
+
+}
+HomeUsuarioGO(){
+  this.router.navigate(['usuarioPanel'])
+
+}
+
+
+
+
 onLogout() {
   const token = localStorage.getItem("token"); // Obtener el token del localStorage
 
